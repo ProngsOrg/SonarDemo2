@@ -12,9 +12,9 @@ os.environ['TARGET_DB'] = 'db_koandina_cl_raw'
 
 os.environ['TARGET_TABLE'] = 'bp_aguas_energia_raw'
 
-from dga_bp_to_raw import bptoraw, check_glueTable
+from dga_bp_to_raw.dga_bp_to_raw import bptoraw, check_glueTable
 
-event_file = open('./tests/events/event.json')
+event_file = open('./dga_bp_to_raw/tests/events/event.json')
 
 event = json.load(event_file)
 
