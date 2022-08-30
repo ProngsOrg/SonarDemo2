@@ -1,13 +1,6 @@
-asn1crypto==1.4.0
-asttokens==2.0.5
 awswrangler==2.14.0
-backcall==0.2.0
-beautifulsoup4==4.10.0
 boto3==1.21.11
 botocore==1.24.11
-certifi==2021.10.8
-charset-normalizer==2.0.12
-colorama==0.4.4
 coverage==6.4.4
 debugpy==1.6.0
 decorator==5.1.1
@@ -45,9 +38,6 @@ pyparsing==3.0.7
 python-dateutil==2.8.2
 python-utils==3.1.0
 pytz==2021.3
-pywin32==304
-pyzmq==23.0.0
-redshift-connector==2.0.904
 requests==2.27.1
 requests-aws4auth==1.1.1
 s3transfer==0.5.2
