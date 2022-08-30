@@ -1,0 +1,71 @@
+import json
+import unittest
+import os, sys
+
+sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+
+os.environ['SOURCE_PATH'] = 's3://raw-koandina-industrial-dev/cl/interna/industrial/valores_bp_agua_energia/'
+
+os.environ['TARGET_PATH'] = 's3://raw-koandina-industrial-dev/cl/interna/industrial/valores_bp_agua_energia/'
+
+os.environ['TARGET_DB'] = 'db_koandina_cl_raw'
+
+os.environ['TARGET_TABLE'] = 'bp_aguas_energia_raw'
+
+from dga_bp_to_raw import bptoraw, check_glueTable
+
+event_file = open('./tests/events/event.json')
+
+event = json.load(event_file)
+
+class bpToRawTest(unittest.TestCase):
+
+    def setUp(self):
+
+        self.event = event
+
+
+    def testBPToRaw(self):
+        
+        try:
+
+            response = bptoraw(event)
+
+            expectedResponse = {
+            'statusCode': 200,
+            'body': json.dumps(f'Se ha cargado la data de BP correctamente en la base de datos: {os.environ["TARGET_DB"]}')
+            }
+
+            self.assertEqual(response, expectedResponse)
+
+        except Exception as e:
+
+            raise Exception(str(e))
+
+    def testCheckGlueTableTrue(self):
+
+        try:
+
+            response = check_glueTable(os.environ['TARGET_TABLE'], os.environ['TARGET_DB'])
+
+            expectedResponse = True
+
+            self.assertEqual(response, expectedResponse)
+
+        except Exception as e:
+
+            raise Exception(str(e))
+
+    def testCheckGlueTableFalse(self):
+
+        try:
+
+            response = check_glueTable('bp_aguas_energia', os.environ['TARGET_DB'])
+
+            expectedResponse = False
+
+            self.assertEqual(response, expectedResponse)
+
+        except Exception as e:
+
+            raise Exception(str(e))
