@@ -20,7 +20,9 @@ jobs:
       - name: Access MS Folder
         run: cd ./dga_bp_to_raw/
       - name: zipdgabptoraw
-        run: zip -r9 -j ./microservice.zip  ./*
+        run: |
+          ls
+          zip -r9 -j ./microservice.zip  ./*
       - name: dgacheckbpdeploy
         env:
           AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID_DEV }}
