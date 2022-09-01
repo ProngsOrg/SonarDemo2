@@ -17,10 +17,9 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v3
-      - name: Access MS Folder
-        run: cd ./dga_bp_to_raw/
       - name: zipdgabptoraw
         run: |
+          cd ./dga_bp_to_raw/
           ls
           zip -r9 -j ./microservice.zip  ./*
       - name: dgacheckbpdeploy
