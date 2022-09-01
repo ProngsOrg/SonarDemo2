@@ -2,7 +2,7 @@ name: Deploy Microservices Manuales
 on:
   push:
     branches:
-      - "develop"
+      - "main"
 
   # Esta instruccion permite llamar manualmente el Action
   workflow_dispatch:
@@ -17,10 +17,11 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v3
-      - name: Access MS Folder
-        run: cd ./dga_bp_to_raw/
       - name: zipdgabptoraw
-        run: zip -r9 -j ./microservice.zip  ./*
+        run: |
+          cd ./dga_bp_to_raw/
+          ls
+          zip -r ./microservice.zip  ./*
       - name: dgacheckbpdeploy
         env:
           AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID_DEV }}
