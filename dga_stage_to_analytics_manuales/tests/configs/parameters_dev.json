@@ -1,0 +1,5 @@
+{
+    "logs_bucket": "s3://dga-logs-bucket-482883277387/",
+    "error_lambda": "dga-notify-error_dev",
+    "database": "db_koandina_cl_stage"
+}

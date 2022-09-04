@@ -20,7 +20,6 @@ jobs:
       - name: zipdgabptoraw
         run: |
           cd ./dga_bp_to_raw/
-          ls
           zip -r ./microservice.zip  ./*
       - name: dgacheckbpdeploy
         env:

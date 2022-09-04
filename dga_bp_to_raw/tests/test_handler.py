@@ -2,15 +2,22 @@ import json
 import unittest
 import os, sys
 
+environment = os.environ['ENVIRONMENT']
+
+parameters_file = open(f'./dga_bp_to_raw/tests/configs/parameters_{environment}.json')
+
+parameters = json.load(parameters_file)
+
 sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 
-os.environ['SOURCE_PATH'] = 's3://raw-koandina-industrial-dev/cl/interna/industrial/valores_bp_agua_energia/'
+os.environ['SOURCE_PATH'] = parameters.get('source_path')
 
-os.environ['TARGET_PATH'] = 's3://raw-koandina-industrial-dev/cl/interna/industrial/valores_bp_agua_energia/'
+os.environ['TARGET_PATH'] = 's3://raw-koandina-industrial-482883277387-dev/cl/interna/industrial/valores_bp_agua_energia/'
 
 os.environ['TARGET_DB'] = 'db_koandina_cl_raw'
 
 os.environ['TARGET_TABLE'] = 'bp_aguas_energia_raw'
+
 
 from dga_bp_to_raw.dga_bp_to_raw import bptoraw, check_glueTable
 

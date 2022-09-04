@@ -2,18 +2,24 @@ import json
 import unittest
 import os, sys
 import datetime
-from urllib import response
+
+environment = os.environ['ENVIRONMENT']
+
+parameters_file = open(f'./dga_check_bp/tests/configs/parameters_{environment}.json')
+
+parameters = json.load(parameters_file)
 
 sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 
-os.environ['BUCKET'] = 'dashboard-aguas-test-bucket'
+os.environ['BUCKET'] = parameters.get('bucket')
 
-os.environ['PREFIX'] = 'cl/interna/industrial/valores_bp_agua_energia'
+os.environ['PREFIX'] = parameters.get('prefix')
 
 os.environ['ERROR_LAMBDA'] = 'dga-notify-error_dev'
-from dga_check_bp.dga_check_bp import checkBP, getLoadDate
 
-event_file = open('./dga_check_bp/tests/events/event.json')
+from dga_check_bp import checkBP, getLoadDate
+
+event_file = open(f'./dga_check_bp/tests/events/event_{environment}.json')
 
 event = json.load(event_file)
 
@@ -47,7 +53,7 @@ class checkBPTest(unittest.TestCase):
 
             expectedResponse = {
                 "lista_archivos_bp": [
-                "20220321_1517_20220101_1818_caga inicial.csv"
+'20220321_1517_20220101_1818_caga inicial.csv'
                 ],
                 "isThereData": True                
             }

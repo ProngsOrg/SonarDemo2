@@ -1,0 +1,8 @@
+{
+    "database": "db_koandina_cl_analytics",
+    "target_table": "dga_analytics_pbi",
+    "target_bucket": "s3://dga-logs-bucket-735700366101/cl/interna/industrial/dga-pbi/",
+    "list_codigo_ob": "[OB-0203-003,OB-0203-005,OB-0203-006,OB-0203-XXX,OB-1306-548,OB-0203-XXX]",
+    "logs_bucket": "s3://dga-logs-bucket-735700366101/",
+    "error_lambda": "dga-notify-error_dev"
+}
