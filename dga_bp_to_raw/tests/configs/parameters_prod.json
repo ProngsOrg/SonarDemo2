@@ -1,0 +1,6 @@
+{
+    "source_path": "s3://raw-koandina-industrial-482883277387-prod/cl/interna/industrial/valores_bp_agua_energia/",
+    "target_path": "s3://raw-koandina-industrial-482883277387-prod/cl/interna/industrial/valores_bp_agua_energia/",
+    "target_db": "db_koandina_cl_raw",
+    "target_table": "bp_aguas_energia_raw"
+}

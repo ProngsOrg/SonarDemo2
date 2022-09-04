@@ -1,0 +1,25 @@
+{
+  "Payload": {
+    "tables": {
+      "dga": {
+        "s3_data_source": "s3://raw-koandina-industrial-482883277387-dev/cl/interna/industrial/dga",
+        "hive_database_raw": "db_koandina_cl_raw",
+        "hive_database_stage": "db_koandina_cl_stage",
+        "hive_table_raw": "dga_raw",
+        "hive_table_stage": "dga_stage",
+        "s3_target": "s3://stage-koandina-industrial-482883277387-dev/cl/interna/industrial/dga"
+      },
+      "siemens": {
+        "s3_data_source": "s3://raw-koandina-industrial-482883277387-dev/cl/interna/industrial/total-siemens/",
+        "hive_database_raw": "db_koandina_cl_raw",
+        "hive_database_stage": "db_koandina_cl_stage",
+        "hive_table_raw": "total_siemens_raw",
+        "hive_table_stage": "total_siemens_stage",
+        "s3_target": "s3://stage-koandina-industrial-482883277387-dev/cl/interna/industrial/total-siemens"
+      }
+    },
+    "fecha_inicio": "02-06-2022",
+    "fecha_fin": "02-06-2022",
+    "SiemensToRaw": "Done"
+  }
+}
