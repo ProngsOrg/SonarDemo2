@@ -3,7 +3,7 @@ name: sonar-develop-push
 on:
   push:
     branches:
-      - "develop"
+      - "main"
 
   # Esta instruccion permite llamar manualmente el Action
   workflow_dispatch:
