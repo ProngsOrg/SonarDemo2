@@ -1,0 +1,4 @@
+{
+    "bucket": "dashboard-aguas-test-bucket",
+    "prefix": "cl/interna/industrial/valores_bp_agua_energia"
+}
