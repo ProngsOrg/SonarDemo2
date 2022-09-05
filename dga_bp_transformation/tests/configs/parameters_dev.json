@@ -1,8 +1,0 @@
-{
-    "target_bucket": "s3://analytics-koandina-dev/cl/interna/industrial/valores_bp_agua_energia_pbi/",
-    "target_table": "bp_aguas_energia_analytics_pbi",
-    "source_table": "bp_aguas_energia_analytics",
-    "database": "db_koandina_cl_analytics",
-    "logs_bucket": "s3://dga-logs-bucket-482883277387/",
-    "error_lambda": "dga-notify-error_dev"
-}
